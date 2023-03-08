@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from "react-router-dom";
+import Utilisateurs from "./utilisateur/pages/Utilisateurs";
+import NouvellePlace from "./places/pages/NouvellePlace";
+import MainNavigation from "./shared/Navigation/MainNavigation";
+import PlacesUtilisateur from "./places/pages/PlacesUtilisateur";
+import Place from "./places/pages/components/Place";
+import Accueil from "./Accueil";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MainNavigation />
+      <main>
+        <Switch>
+          <Route path= "/accueil" exact>
+            <Accueil />
+          </Route>
+          <Route path="/" exact>
+            <Utilisateurs />
+          </Route>
+          <Route path="/:userId/places" exact>
+              <PlacesUtilisateur />
+          </Route>
+          <Route path="/places/nouvelle" exact>
+            <NouvellePlace />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </main>
+    </Router>
   );
 }
 
