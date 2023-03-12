@@ -8,7 +8,7 @@ import Card from "../../shared/Card";
 import "./Utilisateur.css";
 
 
-function Utilisateur({ utilisateur }) {
+export function Utilisateur({ utilisateur }) {
   
   return (
     <li className="user-item">

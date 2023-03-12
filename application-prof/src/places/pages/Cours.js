@@ -41,4 +41,8 @@ function Cours() {
   )
 }
 
+export function getCours(coursId){
+  return COURS.filter((cours) => (cours.id === coursId))[0];
+}
+
 export default Cours;

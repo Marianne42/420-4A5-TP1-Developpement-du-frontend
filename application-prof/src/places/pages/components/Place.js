@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../../../shared/Card";
 import Button from "../../../shared/Formulaire/Button";
+import { Link } from 'react-router-dom'
 import "./Place.css";
 
 function Place({ place }) {
@@ -13,8 +14,8 @@ function Place({ place }) {
           <p>{place.discipline}</p>
         </div>
         <div className="place-item__actions">
-          <Button inverse> Voir sur la carte </Button>
-          <Button to={`/places/${place.id}`}> Voir enseignants </Button>
+          <Button to={`/cours/${place.id}`}> Voir le cours </Button>
+          <Button> Voir enseignants </Button>
           <Button danger> Supprimer </Button>
         </div>
       </Card>
