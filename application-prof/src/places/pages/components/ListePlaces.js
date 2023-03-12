@@ -9,7 +9,7 @@ function ListePlaces(props) {
     return (
       <div className="place-list center">
         <Card>
-          <h2> Pas de places trouvées :(</h2>
+          <h2> Pas de cours trouvées :</h2>
         </Card>
       </div>
     );

@@ -8,7 +8,7 @@ import {
 import Utilisateurs from "./utilisateur/pages/Utilisateurs";
 import NouvellePlace from "./places/pages/NouvellePlace";
 import MainNavigation from "./shared/Navigation/MainNavigation";
-import PlacesUtilisateur from "./places/pages/PlacesUtilisateur";
+import PlacesUtilisateur from "./places/pages/Cours";
 import Place from "./places/pages/components/Place";
 import Accueil from "./Accueil";
 
@@ -24,7 +24,7 @@ function App() {
           <Route path="/" exact>
             <Utilisateurs />
           </Route>
-          <Route path="/:userId/places" exact>
+          <Route path="/:userId/cours" exact>
               <PlacesUtilisateur />
           </Route>
           <Route path="/places/nouvelle" exact>
