@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getCours } from "../../places/pages/Cours";
 
 
 import Avatar from "../../shared/Avatar";
@@ -10,8 +11,9 @@ import "./Utilisateur.css";
 
 export function Utilisateur({ utilisateur }) {
   
+  
   return (
-    <li className="user-item">
+        <div className="user-item">
         <Card className="user-item__content">
           <Link to={`/${utilisateur.id}/cours`}>
             <div className="user-item__image">
@@ -22,14 +24,15 @@ export function Utilisateur({ utilisateur }) {
               <h2>{utilisateur.nom}</h2>
               <h3>
                 <ul>
-                {utilisateur.cours.map(ut => <li> {ut} </li>)}
+                {utilisateur.cours.map(coursId => <li> {getCours(coursId).titre} </li>)}
                 </ul>
                 
               </h3>
             </div>
           </Link>
         </Card>
-    </li>
+        </div>
+    
   );
 }
 

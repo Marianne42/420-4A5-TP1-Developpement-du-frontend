@@ -17,7 +17,9 @@ function ListeUtilisateurs(props) {
   return (
     <ul className="users-list">
       {props.utilisateurs.map((utilisateur) => (
-        <Utilisateur key={utilisateur.id} utilisateur={utilisateur} />
+        <li className="user-item">
+          <Utilisateur key={utilisateur.id} utilisateur={utilisateur} /> 
+          </li>
       ))}
     </ul>
   );

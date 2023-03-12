@@ -10,13 +10,14 @@ import { Utilisateur } from "../../../utilisateur/components/Utilisateur";
 function PageCours() {
     const coursId = useParams().coursId;
     const notreCours = getCours(coursId);
+    const user = getProfesseur(notreCours.professeur)
   
   return (
         <><div className="place-item__info">
           <h2>{notreCours.titre}</h2>
           <h3>{notreCours.nbrMaxEtudiant} élèves maximum</h3>
           <p>{notreCours.discipline}</p>
-          
+          <Utilisateur key={user.id} utilisateur={user}/>
         </div></>
   );
 }
