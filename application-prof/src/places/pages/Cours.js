@@ -37,7 +37,7 @@ const COURS = [
     nbrMaxEtudiant: 30,
     dateDebut: new Date("2022-01-02"),
     dateFin: new Date("2022-06-05"),
-    professeur: "u1",
+    professeur: "u3",
   },
   {
     id: "p5",
@@ -55,15 +55,18 @@ const COURS = [
     nbrMaxEtudiant: 5,
     dateDebut: new Date("2022-08-01"),
     dateFin: new Date("2022-12-31"),
-    professeur: "u2",
+    professeur: "u3",
   },
 ];
 
+//La session actuelle c'est 2023-01-01 jusqu'à 2023-06-06
 function Cours() {
+  //ICI
+  const sessionActuelle = [new Date("2023-01-01"),new Date("2023-06-06")]
   const userId = useParams().userId;
-  const placesChargees = COURS //.filter((place) => (place.createur === userId));
+  const coursCharges = COURS.filter((cours) => (cours.dateDebut >=  sessionActuelle[0] && cours.dateFin <= sessionActuelle[1])); // À éditer pour ne faire voir que les cours actuels
   return (
-    <ListePlaces places={placesChargees} />
+    <ListePlaces places={coursCharges} />
   
   )
 }
