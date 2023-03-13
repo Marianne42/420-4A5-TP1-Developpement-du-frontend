@@ -13,7 +13,7 @@ export function Utilisateur({ utilisateur }) {
   
   
   return (
-        <div className="user-item">
+        
         <Card className="user-item__content">
           <Link to={`/${utilisateur.id}/cours`}>
             <div className="user-item__image">
@@ -21,17 +21,18 @@ export function Utilisateur({ utilisateur }) {
             </div>
 
             <div className="user-item__info">
-              <h2>{utilisateur.nom} {utilisateur.prenom}</h2>
+              <h2>{utilisateur.nom} {utilisateur.prenom} </h2>
               <h3>
                 <ul>
                 {utilisateur.cours.map(coursId => <li> {getCours(coursId).titre} </li>)}
                 </ul>
                 
               </h3>
+              
             </div>
           </Link>
         </Card>
-        </div>
+        
     
   );
 }

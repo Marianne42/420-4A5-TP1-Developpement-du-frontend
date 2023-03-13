@@ -17,7 +17,11 @@ function PageCours() {
           <h2>{notreCours.titre}</h2>
           <h3>{notreCours.nbrMaxEtudiant} élèves maximum</h3>
           <p>{notreCours.discipline}</p>
-          <Utilisateur key={user.id} utilisateur={user}/>
+          <div className="user-item">
+            <Utilisateur key={user.id} utilisateur={user}/>
+          </div>
+          
+
         </div></>
   );
 }
