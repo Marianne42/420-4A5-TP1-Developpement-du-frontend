@@ -25,7 +25,7 @@ function App() {
           <Route path="/professeurs" exact>
             <Utilisateurs />
           </Route>
-          <Route path="/:userId/cours" exact>
+          <Route path="/session/:numsession" exact>
               <Cours />
           </Route>
           <Route path="/cours/:coursId" exact>

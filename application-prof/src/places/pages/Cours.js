@@ -62,9 +62,17 @@ const COURS = [
 //La session actuelle c'est 2023-01-01 jusqu'à 2023-06-06
 function Cours() {
   //ICI
-  const sessionActuelle = [new Date("2023-01-01"),new Date("2023-06-06")]
-  const userId = useParams().userId;
-  const coursCharges = COURS.filter((cours) => (cours.dateDebut >=  sessionActuelle[0] && cours.dateFin <= sessionActuelle[1])); // À éditer pour ne faire voir que les cours actuels
+  const session = [
+    [new Date("2023-01-01"),new Date("2023-06-06")],
+    [new Date("2022-08-01"),new Date("2022-12-23")],
+    [new Date("2022-01-01"),new Date("2022-06-06")],
+    [new Date("2021-08-01"),new Date("2021-12-23")],
+    [new Date("2021-01-01"),new Date("2021-06-06")]
+  ]
+
+  var numSession = useParams().numsession;
+  var sessionAffichee = session[numSession]
+  const coursCharges = COURS.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1])); // À éditer pour ne faire voir que les cours actuels
   return (
     <ListePlaces places={coursCharges} />
   

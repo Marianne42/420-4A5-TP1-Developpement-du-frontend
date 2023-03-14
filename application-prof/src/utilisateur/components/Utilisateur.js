@@ -15,7 +15,6 @@ export function Utilisateur({ utilisateur }) {
   return (
         
         <Card className="user-item__content">
-          <Link to={`/${utilisateur.id}/cours`}>
             <div className="user-item__image">
               <Avatar image={utilisateur.image} alt={utilisateur.nom} />
             </div>
@@ -30,7 +29,7 @@ export function Utilisateur({ utilisateur }) {
               </h3>
               
             </div>
-          </Link>
+          
         </Card>
         
     

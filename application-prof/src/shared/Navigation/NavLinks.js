@@ -12,7 +12,7 @@ function NavLinks(props) {
       <NavLink to="/professeurs" exact>Professeurs</NavLink>
     </li>
     <li>
-      <NavLink to="/u1/cours">Cours</NavLink>
+      <NavLink to="/session/0">Cours</NavLink>
     </li>
   </ul>
 };
