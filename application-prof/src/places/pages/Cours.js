@@ -1,14 +1,14 @@
 import React from "react";
 import ListePlaces from "./components/ListePlaces";
 import { useParams } from "react-router-dom";
-import { COURS, NB_COURS, set_NB_COURS, set_COURS} from "../../App";
+import {COURS, NB_COURS, set_NB_COURS, set_COURS} from "../../App";
 
 
 
 
 //La session actuelle c'est 2023-01-01 jusqu'à 2023-06-06
-function Cours() {
-  //ICI
+function Cours({cours, ajouterCours}) {
+
   const session = [
     [new Date("2023-01-01"),new Date("2023-06-06")],
     [new Date("2022-08-01"),new Date("2022-12-23")],
@@ -19,17 +19,21 @@ function Cours() {
 
   var numSession = useParams().numsession;
   var sessionAffichee = session[numSession]
-  const coursCharges = COURS.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1])); // À éditer pour ne faire voir que les cours actuels
+  
+  const coursCharges = cours.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1]));
   return (
-    <ListePlaces places={coursCharges} />
+    
+    <ListePlaces cours={coursCharges} ajouterCours={ajouterCours} />
+
   
   )
 }
-
+/*
 export function ajouterCours(titreN, disciplineN, nbrMaxEtudiantN, dateDebutN, dateFinN){
   set_NB_COURS(NB_COURS + 1);
   const idN = "c" + NB_COURS
-  /*COURS.push({
+  set_COURS(
+  COURS.concat({
     id:idN,
     titre:titreN,
     discipline:disciplineN,
@@ -37,9 +41,11 @@ export function ajouterCours(titreN, disciplineN, nbrMaxEtudiantN, dateDebutN, d
     dateDebut:dateDebutN,
     dateFin:dateFinN,
     professeur:"u3"
-  })*/
+  }))
+
   alert("J'ai "+NB_COURS+" cours dans ma base de données ! Yay !")
 }
+*/
 
 export function getCours(coursId){
   return COURS.filter((cours) => (cours.id === coursId))[0];
