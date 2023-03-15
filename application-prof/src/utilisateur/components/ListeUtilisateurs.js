@@ -8,8 +8,42 @@ function ListeUtilisateurs(props) {
     return (
       <div className="center">
         <Card>
-          <h2>Aucun utilisateur</h2>
+          <h2>Aucun professeur</h2>
         </Card>
+
+        <div className="place-list center">
+          <form>
+            <h1 className=""> Ajouter un Professeur </h1>
+            
+            <label>
+              Titre : {" "}
+              <input type="text" name="titre" />
+            </label>
+            <br/>
+            <label>
+              Discipline : {" "}
+              <input type="text" name="discipline"/>
+            </label>
+            <br/>
+            <label>
+              Nombre maximal d'élèves : {" "}
+              <input type="number" name="nbrEleve"/>
+            </label>
+            <br/>
+            <label>
+              Date de début : {" "}
+              <input type="date" name="dateDebut"/>
+            </label>
+            <br/>
+            <label>
+              Date de fin : {" "}
+              <input type="date" name="dateFin"/>
+            </label>
+            <br/>
+            <input type="submit" />
+          </form>
+        </div>
+
       </div>
     );
   }
@@ -21,6 +55,40 @@ function ListeUtilisateurs(props) {
           <Utilisateur key={utilisateur.id} utilisateur={utilisateur} /> 
           </li>
       ))}
+
+        <div className="place-list center">
+          <form>
+            <h1 className=""> Ajouter un Professeur </h1>
+            
+            <label>
+              Date d'embauche : {" "}
+              <input type="date" name="dateEmbauche" />
+            </label>
+            <br/>
+            <label>
+              Nom : {" "}
+              <input type="text" name="nom"/>
+            </label>
+            <br/>
+            <label>
+              Prénom : {" "}
+              <input type="text" name="prenom"/>
+            </label>
+            <br/>
+            <label>
+              Photo : {" "}
+              <input type="url" name="photo"/>
+            </label>
+            <br/>
+            <label>
+              liste de cours : {" "}
+              <input type="text" name="listeCours"/>
+            </label>
+            <br/>
+            <input type="submit" />
+          </form>
+        </div>
+      
     </ul>
   );
 }
