@@ -127,7 +127,7 @@ function ajouterCours(nouveauCours) {
             <Accueil />
           </Route>
           <Route path="/professeurs" exact>
-            <Utilisateurs />
+            <Utilisateurs professeur={professeurs} ajouterProfesseur={ajouterProfesseur}/>
           </Route>
           <Route path="/session/:numsession" exact>
               <Cours cours={COURS} ajouterCours={ajouterCours}/>
