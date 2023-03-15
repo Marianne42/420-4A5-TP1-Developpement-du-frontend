@@ -5,24 +5,74 @@ import Place from "./Place";
 import "./ListePlaces.css";
 import Button from "../../../shared/Formulaire/Button";
 import { useParams } from "react-router-dom";
-import { ajouterCours } from "../Cours";
+import Cours from "../Cours";
+import { useState } from "react";
 
 
-function ListePlaces(props) {
+function ListePlaces({cours, ajouterCours}) {
+
+  const [titreSaisie, setTitre] = useState(
+    ""
+  )
+  const [disciplineSaisie, setDiscipline] = useState(
+    ""
+  )
+  const [nbrMaxEtudiantSaisie, setNbrMaxEtudiant] = useState(
+    ""
+  )
+  const [dateDebutSaisie, setDateDebut] = useState(
+    ""
+  )
+  const [dateFinSaisie, setDateFin] = useState(
+    ""
+  )
+
+  
 
   const handleSubmit = (event) => {
-    const titre           = event.target.titre;
-    const discipline      = event.target.discipline;
-    const nbrMaxEtudiant  = event.target.nbrMaxEtudiant;
-    const dateDebut       = event.target.dateDebut;
-    const dateFin         = event.target.dateDebut;
+    event.preventDefault();
+    const nouveauCours={
+      titre           : titreSaisie,
+      discipline      : disciplineSaisie,
+      nbrMaxEtudiant  : nbrMaxEtudiantSaisie,
+      dateDebut       : dateDebutSaisie,
+      dateFin         : dateFinSaisie
 
-    ajouterCours(titre,discipline,nbrMaxEtudiant,dateDebut,dateFin)
+    };
+
+
+    ajouterCours(nouveauCours)
+    
+  }
+
+  function saisieTitre(event){
+    
+    setTitre(event.target.value)
+  }
+
+  function saisieDiscipline(event){
+    
+    setDiscipline(event.target.value)
+  }
+
+  function saisieNbrEleves(event){
+    
+    setNbrMaxEtudiant(event.target.value)
+  }
+
+  function saisieDateDebut(event){
+    
+    setDateDebut(event.target.value)
+  }
+
+  function saisieTitreDateFin(event){
+    
+    setDateFin(event.target.value)
   }
 
 
   var numSession = parseInt(useParams().numsession);
-  if (props.places.length === 0)
+  if (cours.length === 0)
     return (
       <div>
         <div className="place-list center">
@@ -33,7 +83,7 @@ function ListePlaces(props) {
         <div className="button-center">
           <Button to={`/session/${Math.min(numSession + 1, 4)}`}>
             {" "}
-            Session Precedente{" "}
+            Session Précedente{" "}
           </Button>
           <Button to={`/session/${Math.max(numSession - 1, 0)}`}>
             {" "}
@@ -46,27 +96,27 @@ function ListePlaces(props) {
             
             <label>
               Titre : {" "}
-              <input type="text" name="titre" />
+              <input type="text" value={titreSaisie} onChange={saisieTitre}/>
             </label>
             <br/>
             <label>
               Discipline : {" "}
-              <input type="text" name="discipline"/>
+              <input type="text" value={disciplineSaisie} onChange={saisieDiscipline}/>
             </label>
             <br/>
             <label>
               Nombre maximal d'élèves : {" "}
-              <input type="number" name="nbrEleve"/>
+              <input type="number" value={nbrMaxEtudiantSaisie} onChange={saisieNbrEleves}/>
             </label>
             <br/>
             <label>
               Date de début : {" "}
-              <input type="date" name="dateDebut"/>
+              <input type="date" value={dateDebutSaisie} onChange={saisieDateDebut}/>
             </label>
             <br/>
             <label>
               Date de fin : {" "}
-              <input type="date" name="dateFin"/>
+              <input type="date" value={dateFinSaisie} onChange={saisieTitreDateFin}/>
             </label>
             <br/>
             <input type="submit" />
@@ -78,7 +128,7 @@ function ListePlaces(props) {
   return (
     <div>
       <ul className="place-list">
-        {props.places.map((place) => (
+        {cours.map((place) => (
           <Place key={place.id} place={place} />
         ))}
       </ul>
@@ -91,6 +141,39 @@ function ListePlaces(props) {
           {" "}
           Session Suivante{" "}
         </Button>
+
+        <div className="place-list center">
+          <form onSubmit={handleSubmit}>
+            <h1 className=""> Ajouter un cours </h1>
+            
+            <label>
+              Titre : {" "}
+              <input type="text" value={titreSaisie} onChange={saisieTitre}/>
+            </label>
+            <br/>
+            <label>
+              Discipline : {" "}
+              <input type="text" value={disciplineSaisie} onChange={saisieDiscipline}/>
+            </label>
+            <br/>
+            <label>
+              Nombre maximal d'élèves : {" "}
+              <input type="number" value={nbrMaxEtudiantSaisie} onChange={saisieNbrEleves}/>
+            </label>
+            <br/>
+            <label>
+              Date de début : {" "}
+              <input type="date" value={dateDebutSaisie} onChange={saisieDateDebut}/>
+            </label>
+            <br/>
+            <label>
+              Date de fin : {" "}
+              <input type="date" value={dateFinSaisie} onChange={saisieTitreDateFin}/>
+            </label>
+            <br/>
+            <input type="submit" />
+          </form>
+        </div>
       </div>
     </div>
   );
