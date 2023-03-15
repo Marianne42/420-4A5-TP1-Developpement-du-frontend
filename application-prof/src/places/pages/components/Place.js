@@ -16,7 +16,7 @@ function Place({ place }) {
         <div className="place-item__actions">
           <Button to={`/cours/${place.id}`}> Voir le cours </Button>
           <Button> Voir enseignants </Button>
-          <Button danger> Supprimer </Button>
+
         </div>
       </Card>
     </li>

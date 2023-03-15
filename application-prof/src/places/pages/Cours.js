@@ -20,7 +20,7 @@ function Cours({cours, ajouterCours}) {
   var numSession = useParams().numsession;
   var sessionAffichee = session[numSession]
   
-  const coursCharges = cours.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1]));
+  const coursCharges = cours//.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1]));
   return (
     
     <ListePlaces cours={coursCharges} ajouterCours={ajouterCours} />

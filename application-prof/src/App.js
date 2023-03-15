@@ -13,6 +13,7 @@ import Place from "./places/pages/components/Place";
 import PageCours from "./places/pages/components/PageCours"
 import Accueil from "./Accueil";
 import { useState } from "react";
+import "./Accueil.css"
 
 export var NB_COURS;
 export var set_NB_COURS;
