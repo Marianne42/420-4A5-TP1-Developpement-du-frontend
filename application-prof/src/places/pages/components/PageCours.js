@@ -20,7 +20,28 @@ function PageCours() {
           <div className="user-item">
             <Utilisateur key={user.id} utilisateur={user}/>
           </div>
-          
+          <div className="place-list center">
+          <form>
+            <h1 className=""> Ajouter un étudiant </h1>
+            
+            <label>
+              Nom : {" "}
+              <input type="text" name="nom" />
+            </label>
+            <br/>
+            <label>
+              Prénom : {" "}
+              <input type="text" name="prenom"/>
+            </label>
+            <br/>
+            <label>
+              Numéro d'admission : {" "}
+              <input type="number" name="numAdmission"/>
+            </label>
+            <br/>
+            <input type="submit" />
+          </form>
+        </div>
 
         </div></>
   );
