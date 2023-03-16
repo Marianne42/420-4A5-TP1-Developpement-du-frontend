@@ -1,32 +1,34 @@
 import React from "react";
-import ListePlaces from "./components/ListePlaces";
+import ListeCours from "./components/ListeCours";
 import { useParams } from "react-router-dom";
-import {COURS, NB_COURS, set_NB_COURS, set_COURS} from "../../App";
-
-
-
 
 //La session actuelle c'est 2023-01-01 jusqu'à 2023-06-06
-function Cours({cours, ajouterCours}) {
-
+function Cours({ cours, ajouterCours, professeur }) {
   const session = [
-    [new Date("2023-01-01"),new Date("2023-06-06")],
-    [new Date("2022-08-01"),new Date("2022-12-23")],
-    [new Date("2022-01-01"),new Date("2022-06-06")],
-    [new Date("2021-08-01"),new Date("2021-12-23")],
-    [new Date("2021-01-01"),new Date("2021-06-06")]
-  ]
+    [new Date("2023-01-01"), new Date("2023-06-06")],
+    [new Date("2022-08-01"), new Date("2022-12-23")],
+    [new Date("2022-01-01"), new Date("2022-06-06")],
+    [new Date("2021-08-01"), new Date("2021-12-23")],
+    [new Date("2021-01-01"), new Date("2021-06-06")],
+  ];
 
   var numSession = useParams().numsession;
-  var sessionAffichee = session[numSession]
-  
-  const coursCharges = cours//.filter((cours) => (cours.dateDebut >=  sessionAffichee[0] && cours.dateFin <= sessionAffichee[1]));
-  return (
-    
-    <ListePlaces cours={coursCharges} ajouterCours={ajouterCours} />
+  var sessionAffichee = session[numSession];
 
-  
-  )
+  const coursCharges = cours.filter(
+    (cours) =>
+      cours.dateDebut >= sessionAffichee[0] &&
+      cours.dateFin <= sessionAffichee[1]
+  );
+
+  return (
+    <ListeCours
+      cours={coursCharges}
+      ajouterCours={ajouterCours}
+      nbCours={cours.length}
+      professeur={professeur}
+    />
+  );
 }
 /*
 export function ajouterCours(titreN, disciplineN, nbrMaxEtudiantN, dateDebutN, dateFinN){
@@ -46,9 +48,5 @@ export function ajouterCours(titreN, disciplineN, nbrMaxEtudiantN, dateDebutN, d
   alert("J'ai "+NB_COURS+" cours dans ma base de données ! Yay !")
 }
 */
-
-export function getCours(coursId){
-  return COURS.filter((cours) => (cours.id === coursId))[0];
-}
 
 export default Cours;

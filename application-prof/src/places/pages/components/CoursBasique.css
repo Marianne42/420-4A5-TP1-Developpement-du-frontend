@@ -53,3 +53,12 @@
     height: 20rem;
   } 
 }
+
+.textForm{
+  text-shadow:   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000,
+     1px 1px 10px #141414;color:#fff;
+    ;
+}
